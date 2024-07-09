@@ -4,8 +4,8 @@ github.com/PuerkitoBio/goquery v1.9.2 h1:4/wZksC3KgkQw7SQgkKotmKljk0M6V8TUvA8Wb4
 github.com/PuerkitoBio/goquery v1.9.2/go.mod h1:GHPCaP0ODyyxqcNoFGYlAprUFH81NuRPd0GX3Zu2Mvk=
 github.com/agnivade/levenshtein v1.1.1 h1:QY8M92nrzkmr798gCo3kmMyqXFzdQVpxLlGPRBij0P8=
 github.com/agnivade/levenshtein v1.1.1/go.mod h1:veldBMzWxcCG2ZvUTKD2kJNRdCk5hVbJomOvKkmgYbo=
-github.com/akafazov/gqlgen v0.0.0-20240709074519-96bd9947b91b h1:+9ZdnZGshESDbJ9CKbk8m2us7VhbgWZVjjsA0ZlR1H4=
-github.com/akafazov/gqlgen v0.0.0-20240709074519-96bd9947b91b/go.mod h1:PfBq9K80jnsoTAPH/8Rln8FZIS3/IM8a3b7XP/7EGog=
+github.com/akafazov/gqlgen v0.0.0-20240709083818-2a42280d2f36 h1:60SyXQbe/aoJ5sdbWCa/3vYI3b5nOQXV9QDAVzYB3AQ=
+github.com/akafazov/gqlgen v0.0.0-20240709083818-2a42280d2f36/go.mod h1:PfBq9K80jnsoTAPH/8Rln8FZIS3/IM8a3b7XP/7EGog=
 github.com/andreyvit/diff v0.0.0-20170406064948-c7f18ee00883 h1:bvNMNQO63//z+xNgfBlViaCIJKLlCJ6/fmUseuG0wVQ=
 github.com/andreyvit/diff v0.0.0-20170406064948-c7f18ee00883/go.mod h1:rCTlJbsFo29Kk6CurOXKm700vrz8f0KW0JNfpkRJY/8=
 github.com/andybalholm/cascadia v1.3.2 h1:3Xi6Dw5lHF15JtdcmAHD3i1+T8plmv7BQ/nsViSLyss=

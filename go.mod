@@ -4,7 +4,8 @@ go 1.22.2
 
 require (
 	github.com/99designs/gqlgen v0.17.49
-	github.com/akafazov/gqlgen v0.0.0-20240709074519-96bd9947b91b
+	github.com/akafazov/gqlgen v0.0.0-20240709083818-2a42280d2f36
+	github.com/vektah/gqlparser/v2 v2.5.16
 )
 
 require (
@@ -14,5 +15,4 @@ require (
 	github.com/hashicorp/golang-lru/v2 v2.0.7 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/sosodev/duration v1.3.1 // indirect
-	github.com/vektah/gqlparser/v2 v2.5.16 // indirect
 )
