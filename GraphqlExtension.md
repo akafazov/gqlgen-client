@@ -1,5 +1,8 @@
 # Approaches to extending existing GraphQL Schema from a library
 
+
+![](./diagram.png)
+
 ## Approach 1
 Use builtin Plugin in `gqlgen` to intercept codegen lifecycle and generate:
 - generated.go
