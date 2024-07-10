@@ -6,7 +6,6 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/akafazov/gqlgen-client/graph/model"
 	libmodel "github.com/akafazov/gqlgen/graph/model"
@@ -30,7 +29,20 @@ func (r *mutationResolver) CreateMeetup(ctx context.Context, input model.NewMeet
 
 // CreateUser is the resolver for the createUser field.
 func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (*model.User, error) {
-	panic(fmt.Errorf("not implemented: CreateUser - createUser"))
+	println("-- mutation: createUser")
+	u, _ := meetups.CreateUser(ctx, libmodel.NewUser{
+		Username: input.Username,
+		Email:    input.Email,
+	})
+	// return u, nil
+
+	user := &model.User{
+		ID:       u.ID,
+		Username: u.Username,
+		Email:    u.Email,
+		// Meetups
+	}
+	return user, nil
 }
 
 // Meetups is the resolver for the meetups field.
