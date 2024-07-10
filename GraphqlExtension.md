@@ -51,3 +51,19 @@ New component - graphql gateway which proxies the queries/mutations to the appro
 ### Cons
 - requires creation of entirely new component (graphql gateway)
 - more complicated than 2 and 3, but probably not as complex as 1
+
+## Approach 5
+Create tooling to pull library stuff into the current project and codegen resources.
+
+Steps:
+- create script which will download the iam.lib.graphqls (schema) from a library to be used together with user schema
+- reconfigure gqlgen.yml (`schema:`)
+- script to fill in implementation of iam.lib.resolvers from the library
+
+### Pros
+- schema discovery works with combined library and user stuff
+- graphql is served by single endpoint
+- iam.lib can be managed as regular go dependency (versioning, migration, other benefits)
+
+### Cons
+- user workflow and tooling has minor deviations from gqlgen path
