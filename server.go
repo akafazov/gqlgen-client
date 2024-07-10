@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -23,7 +22,6 @@ type QueryRequest struct {
 
 // isLibQuery is a custom function that determines which server to use
 func isLibQuery(query string) bool {
-	println(fmt.Sprintf("-- Query: %s", query))
 	return !strings.Contains(query, "query todos")
 }
 
@@ -47,7 +45,6 @@ func CustomHandler(w http.ResponseWriter, r *http.Request) {
 	r.Body = io.NopCloser(bytes.NewBuffer(body)) // restore the body for further use
 
 	if isLibQuery(string(body)) {
-		println("--- libquery ---")
 		srvlib.ServeHTTP(w, r)
 	} else {
 		srv.ServeHTTP(w, r)

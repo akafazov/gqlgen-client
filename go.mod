@@ -4,7 +4,7 @@ go 1.22.2
 
 require (
 	github.com/99designs/gqlgen v0.17.49
-	github.com/akafazov/gqlgen v0.0.0-20240709083818-2a42280d2f36
+	github.com/akafazov/gqlgen v0.0.0-20240710142431-d2424b13b8f1
 	github.com/vektah/gqlparser/v2 v2.5.16
 )
 
