@@ -8,7 +8,7 @@ type Todo {
   done: Boolean!
 }
 
-type Query {
+extend type Query {
   todos: [Todo!]!
 }
 
@@ -16,6 +16,6 @@ input NewTodo {
   text: String!
 }
 
-type Mutation {
+extend type Mutation {
   createTodo(input: NewTodo!): Todo!
 }

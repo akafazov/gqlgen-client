@@ -10,10 +10,24 @@ input NewMeetup {
     description: String!
 }
 
-extend type Query {
+type User {
+    id: ID!
+    username: String!
+    email: String!
     meetups: [Meetup!]!
 }
 
-extend type Mutation {
-    createMeetup(input: NewMeetup!): Meetup!
+type Query {
+    meetups: [Meetup!]!
+    users: [User!]!
 }
+
+input NewUser {
+    username: String!
+    email: String!
+}
+type Mutation {
+    createMeetup(input: NewMeetup!): Meetup!
+    createUser(input: NewUser!): User!
+}
+

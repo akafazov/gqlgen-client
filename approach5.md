@@ -5,3 +5,5 @@ Steps:
 - modify `gqlgen.yml` so that it finds the new schemas in `graph-lib`
 - call `go generate ./...` to generate new files from combined schema
 - link the library: `go get github.com/akafazov/gqlgen@latest`
+- update schema from lib: now 1 file
+- change user schema to extend the `query` and `mutation` declarations

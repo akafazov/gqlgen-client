@@ -6,6 +6,7 @@ package graph
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/akafazov/gqlgen-client/graph/model"
 	libmodel "github.com/akafazov/gqlgen/graph/model"
@@ -27,6 +28,11 @@ func (r *mutationResolver) CreateMeetup(ctx context.Context, input model.NewMeet
 	return meetup, err
 }
 
+// CreateUser is the resolver for the createUser field.
+func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (*model.User, error) {
+	panic(fmt.Errorf("not implemented: CreateUser - createUser"))
+}
+
 // Meetups is the resolver for the meetups field.
 func (r *queryResolver) Meetups(ctx context.Context) ([]*model.Meetup, error) {
 	println("-- query: meetups")
@@ -43,3 +49,28 @@ func (r *queryResolver) Meetups(ctx context.Context) ([]*model.Meetup, error) {
 
 	return meetups, err
 }
+
+// Users is the resolver for the users field.
+func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
+	us, _ := meetups.GetUsers(ctx)
+	users := make([]*model.User, len(us))
+	for i, u := range us {
+		users[i] = &model.User{
+			ID:       u.ID,
+			Username: u.Username,
+			Email:    u.Email,
+			// Meetups: u.Meetups,
+		}
+	}
+
+	return users, nil
+}
+
+// Mutation returns MutationResolver implementation.
+func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
+
+// Query returns QueryResolver implementation.
+func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
+
+type mutationResolver struct{ *Resolver }
+type queryResolver struct{ *Resolver }
