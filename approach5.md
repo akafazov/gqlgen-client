@@ -7,3 +7,13 @@ Steps:
 - link the library: `go get github.com/akafazov/gqlgen@latest`
 - update schema from lib: now 1 file
 - change user schema to extend the `query` and `mutation` declarations
+- link the library: `go get github.com/akafazov/gqlgen@v0.8.0`
+- implement `meetup.resolvers.go` manually
+
+
+
+
+Problems:
+- `meetup.resolvers.go` must be implemented manually - TODO: automate (script, codegen, ...)
+- input/output parameters in `meetup.resolvers.go` functions must be converted between library and project with same name but different package
+- manual steps above not automated with Taskfile
