@@ -1,0 +1,55 @@
+version: '3'
+
+# dotenv: ['.taskenv', '{{.HOME}}/.env' ]
+
+vars:
+  LOCAL_BIN: bin
+  GQLGEN_VERSION: v0.8.0
+tasks:
+  ## Setup
+  setup:gqlschema:
+    internal: true
+    cmds:
+      - go get github.com/akafazov/gqlgen@{{.GQLGEN_VERSION}}
+  setup:golangci-lint:
+    internal: true
+    cmds:
+      - test -s {{.LOCAL_BIN}}/golangci-lint || GOBIN=$(pwd)/{{.LOCAL_BIN}} go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+      - go generate ./...
+  ## Development
+  generate:
+    deps: [setup:gqlschema]
+    cmds:
+      # - ls $(go env GOPATH)/pkg/mod/github.com/akafazov/gqlgen
+      - mkdir -p graph-lib
+      - cp $(go env GOPATH)/pkg/mod/github.com/akafazov/gqlgen@{{.GQLGEN_VERSION}}/graph/meetup.graphqls graph-lib/
+  build:
+    cmds:
+      - go build ./...
+  ## Testing
+  envtest:
+    # env:
+    cmds:
+      - go test ./... {{.ADDITIONAL_COMMAND_ARGS}}
+  fmt:
+    cmds:
+      - go fmt ./...
+  lint:
+    deps: [setup:golangci-lint]
+    cmds:
+      - task: fmt
+      - "{{.LOCAL_BIN}}/golangci-lint run --timeout 15m ./..."
+  test:
+    deps: []
+    cmds:
+      - go test ./... -coverprofile cover.out
+  cover:
+    deps: [test]
+    cmds:
+      - task: envtest
+        vars:
+          ADDITIONAL_COMMAND_ARGS: -coverprofile=./cover.out -covermode=atomic
+  validate:
+    cmds:
+      - task: lint
+      - task: test

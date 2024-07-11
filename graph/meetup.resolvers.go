@@ -14,11 +14,16 @@ import (
 
 // CreateMeetup is the resolver for the createMeetup field.
 func (r *mutationResolver) CreateMeetup(ctx context.Context, input model.NewMeetup) (*model.Meetup, error) {
+	// convert input
 	m := libmodel.NewMeetup{
 		Name:        input.Name,
 		Description: input.Description,
 	}
+
+	// call library
 	newmeetup, err := meetups.CreateMeetup(m)
+
+	// convert output
 	meetup := &model.Meetup{
 		ID:          newmeetup.ID,
 		Name:        newmeetup.Name,

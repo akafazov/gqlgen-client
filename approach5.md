@@ -9,7 +9,8 @@ Steps:
 - change user schema to extend the `query` and `mutation` declarations
 - link the library: `go get github.com/akafazov/gqlgen@v0.8.0`
 - implement `meetup.resolvers.go` manually
-
+- delete `graph/generate.go`
+- add `Taskfile.yml`
 
 
 
