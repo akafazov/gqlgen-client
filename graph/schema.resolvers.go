@@ -8,7 +8,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/akafazov/gqlgen-client/graph/model"
+	"github.com/darashevcstbg/gqlgen-client/graph/model"
 )
 
 // CreateTodo is the resolver for the createTodo field.
@@ -18,8 +18,5 @@ func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) 
 
 // Todos is the resolver for the todos field.
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	todos := []*model.Todo{
-		{ID: "1", Text: "todo1", Done: false},
-	}
-	return todos, nil
+	panic(fmt.Errorf("not implemented: Todos - todos"))
 }
