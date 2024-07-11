@@ -2,12 +2,28 @@
 
 package model
 
+type Meetup struct {
+	ID          string `json:"id"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	User        *User  `json:"user"`
+}
+
 type Mutation struct {
 }
 
+type NewMeetup struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
+}
+
 type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+	Text string `json:"text"`
+}
+
+type NewUser struct {
+	Username string `json:"username"`
+	Email    string `json:"email"`
 }
 
 type Query struct {
@@ -17,10 +33,11 @@ type Todo struct {
 	ID   string `json:"id"`
 	Text string `json:"text"`
 	Done bool   `json:"done"`
-	User *User  `json:"user"`
 }
 
 type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID       string    `json:"id"`
+	Username string    `json:"username"`
+	Email    string    `json:"email"`
+	Meetups  []*Meetup `json:"meetups"`
 }
