@@ -4,6 +4,8 @@ package graph
 
 import (
 	"context"
+	"fmt"
+	"reflect"
 
 	"github.com/darashevcstbg/gqlgen-client/graph/model"
 
@@ -14,38 +16,50 @@ import (
 // CreateMeetup is the resolver for the createMeetup field.
 func (r *mutationResolver) CreateMeetup(ctx context.Context, input model.NewMeetup) (*model.Meetup, error) {
 	// convert input
-	m := libmodel.NewMeetup{
-		Name:        input.Name,
-		Description: input.Description,
+	var m libmodel.NewMeetup
+	err := copyStruct(&m, &input)
+	if err != nil {
+		return nil, err
 	}
 
 	// call library
 	newmeetup, err := meetups.CreateMeetup(m)
+	if err != nil {
+		return nil, err
+	}
 
 	// convert output
-	meetup := &model.Meetup{
-		ID:          newmeetup.ID,
-		Name:        newmeetup.Name,
-		Description: newmeetup.Description,
+	meetup := &model.Meetup{}
+	err = copyStruct(meetup, newmeetup)
+	if err != nil {
+		return nil, err
 	}
-	return meetup, err
+
+	return meetup, nil
 }
 
 // CreateUser is the resolver for the createUser field.
 func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (*model.User, error) {
-	println("-- mutation: createUser")
-	u, _ := meetups.CreateUser(ctx, libmodel.NewUser{
-		Username: input.Username,
-		Email:    input.Email,
-	})
-	// return u, nil
-
-	user := &model.User{
-		ID:       u.ID,
-		Username: u.Username,
-		Email:    u.Email,
-		// Meetups
+	// convert input
+	var u libmodel.NewUser
+	err := copyStruct(&u, &input)
+	if err != nil {
+		return nil, err
 	}
+
+	// call library
+	newuser, err := meetups.CreateUser(ctx, u)
+	if err != nil {
+		return nil, err
+	}
+
+	// convert output
+	user := &model.User{}
+	err = copyStruct(user, newuser)
+	if err != nil {
+		return nil, err
+	}
+
 	return user, nil
 }
 
@@ -53,30 +67,38 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) 
 func (r *queryResolver) Meetups(ctx context.Context) ([]*model.Meetup, error) {
 	println("-- query: meetups")
 	ms, err := meetups.GetMeetups(ctx)
+	if err != nil {
+		return nil, err
+	}
 
 	meetups := make([]*model.Meetup, len(ms))
 	for i, m := range ms {
-		meetups[i] = &model.Meetup{
-			ID:          m.ID,
-			Name:        m.Name,
-			Description: m.Description,
+		meetup := &model.Meetup{}
+		err := copyStruct(meetup, m)
+		if err != nil {
+			return nil, err
 		}
+		meetups[i] = meetup
 	}
 
-	return meetups, err
+	return meetups, nil
 }
 
 // Users is the resolver for the users field.
 func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
-	us, _ := meetups.GetUsers(ctx)
+	us, err := meetups.GetUsers(ctx)
+	if err != nil {
+		return nil, err
+	}
+
 	users := make([]*model.User, len(us))
 	for i, u := range us {
-		users[i] = &model.User{
-			ID:       u.ID,
-			Username: u.Username,
-			Email:    u.Email,
-			// Meetups: u.Meetups,
+		user := &model.User{}
+		err := copyStruct(user, u)
+		if err != nil {
+			return nil, err
 		}
+		users[i] = user
 	}
 
 	return users, nil
@@ -90,3 +112,72 @@ func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
+
+func copyStruct(dest, src interface{}) error {
+	destVal := reflect.ValueOf(dest).Elem()
+	srcVal := reflect.ValueOf(src).Elem()
+
+	if destVal.Type() != srcVal.Type() {
+		return fmt.Errorf("type mismatch: %s != %s", destVal.Type(), srcVal.Type())
+	}
+
+	for i := 0; i < destVal.NumField(); i++ {
+		destVal.Field(i).Set(srcVal.Field(i))
+	}
+
+	return deepCopy(destVal, srcVal)
+}
+
+func deepCopy(dest, src reflect.Value) error {
+	if dest.Kind() != src.Kind() {
+		return fmt.Errorf("type mismatch")
+	}
+
+	switch dest.Kind() {
+	case reflect.Struct:
+		for i := 0; i < dest.NumField(); i++ {
+			if err := deepCopy(dest.Field(i), src.Field(i)); err != nil {
+				return err
+			}
+		}
+	case reflect.Slice:
+		if src.IsNil() {
+			dest.Set(reflect.Zero(dest.Type()))
+		} else {
+			dest.Set(reflect.MakeSlice(dest.Type(), src.Len(), src.Cap()))
+			for i := 0; i < src.Len(); i++ {
+				if err := deepCopy(dest.Index(i), src.Index(i)); err != nil {
+					return err
+				}
+			}
+		}
+	case reflect.Map:
+		if src.IsNil() {
+			dest.Set(reflect.Zero(dest.Type()))
+		} else {
+			dest.Set(reflect.MakeMap(dest.Type()))
+			for _, key := range src.MapKeys() {
+				newVal := reflect.New(dest.Type().Elem()).Elem()
+				if err := deepCopy(newVal, src.MapIndex(key)); err != nil {
+					return err
+				}
+				dest.SetMapIndex(key, newVal)
+			}
+		}
+	case reflect.Ptr:
+		if src.IsNil() {
+			dest.Set(reflect.Zero(dest.Type()))
+		} else {
+			if dest.IsNil() {
+				dest.Set(reflect.New(dest.Type().Elem()))
+			}
+			if err := deepCopy(dest.Elem(), src.Elem()); err != nil {
+				return err
+			}
+		}
+	default:
+		dest.Set(src)
+	}
+
+	return nil
+}
