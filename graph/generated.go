@@ -14,7 +14,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
-	"github.com/darashevcstbg/gqlgen-client/graph/model"
+	"github.com/akafazov/gqlgen-client/graph/model"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
 )
@@ -411,7 +411,7 @@ func (ec *executionContext) field_Mutation_createMeetup_args(ctx context.Context
 	var arg0 model.NewMeetup
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNewMeetup2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewMeetup(ctx, tmp)
+		arg0, err = ec.unmarshalNNewMeetup2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewMeetup(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -426,7 +426,7 @@ func (ec *executionContext) field_Mutation_createTodo_args(ctx context.Context, 
 	var arg0 model.NewTodo
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNewTodo2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewTodo(ctx, tmp)
+		arg0, err = ec.unmarshalNNewTodo2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewTodo(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -441,7 +441,7 @@ func (ec *executionContext) field_Mutation_createUser_args(ctx context.Context, 
 	var arg0 model.NewUser
 	if tmp, ok := rawArgs["input"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("input"))
-		arg0, err = ec.unmarshalNNewUser2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewUser(ctx, tmp)
+		arg0, err = ec.unmarshalNNewUser2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewUser(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -663,7 +663,7 @@ func (ec *executionContext) _Meetup_user(ctx context.Context, field graphql.Coll
 	}
 	res := resTmp.(*model.User)
 	fc.Result = res
-	return ec.marshalNUser2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Meetup_user(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -717,7 +717,7 @@ func (ec *executionContext) _Mutation_createMeetup(ctx context.Context, field gr
 	}
 	res := resTmp.(*model.Meetup)
 	fc.Result = res
-	return ec.marshalNMeetup2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetup(ctx, field.Selections, res)
+	return ec.marshalNMeetup2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetup(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createMeetup(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -782,7 +782,7 @@ func (ec *executionContext) _Mutation_createUser(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.User)
 	fc.Result = res
-	return ec.marshalNUser2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createUser(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -847,7 +847,7 @@ func (ec *executionContext) _Mutation_createTodo(ctx context.Context, field grap
 	}
 	res := resTmp.(*model.Todo)
 	fc.Result = res
-	return ec.marshalNTodo2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodo(ctx, field.Selections, res)
+	return ec.marshalNTodo2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Mutation_createTodo(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -910,7 +910,7 @@ func (ec *executionContext) _Query_meetups(ctx context.Context, field graphql.Co
 	}
 	res := resTmp.([]*model.Meetup)
 	fc.Result = res
-	return ec.marshalNMeetup2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetupᚄ(ctx, field.Selections, res)
+	return ec.marshalNMeetup2ᚕᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetupᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_meetups(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -964,7 +964,7 @@ func (ec *executionContext) _Query_users(ctx context.Context, field graphql.Coll
 	}
 	res := resTmp.([]*model.User)
 	fc.Result = res
-	return ec.marshalNUser2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐUserᚄ(ctx, field.Selections, res)
+	return ec.marshalNUser2ᚕᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐUserᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_users(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1018,7 +1018,7 @@ func (ec *executionContext) _Query_todos(ctx context.Context, field graphql.Coll
 	}
 	res := resTmp.([]*model.Todo)
 	fc.Result = res
-	return ec.marshalNTodo2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodoᚄ(ctx, field.Selections, res)
+	return ec.marshalNTodo2ᚕᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodoᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_Query_todos(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -1463,7 +1463,7 @@ func (ec *executionContext) _User_meetups(ctx context.Context, field graphql.Col
 	}
 	res := resTmp.([]*model.Meetup)
 	fc.Result = res
-	return ec.marshalNMeetup2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetupᚄ(ctx, field.Selections, res)
+	return ec.marshalNMeetup2ᚕᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetupᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) fieldContext_User_meetups(_ context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
@@ -4057,11 +4057,11 @@ func (ec *executionContext) marshalNID2string(ctx context.Context, sel ast.Selec
 	return res
 }
 
-func (ec *executionContext) marshalNMeetup2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetup(ctx context.Context, sel ast.SelectionSet, v model.Meetup) graphql.Marshaler {
+func (ec *executionContext) marshalNMeetup2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetup(ctx context.Context, sel ast.SelectionSet, v model.Meetup) graphql.Marshaler {
 	return ec._Meetup(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNMeetup2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetupᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Meetup) graphql.Marshaler {
+func (ec *executionContext) marshalNMeetup2ᚕᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetupᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Meetup) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -4085,7 +4085,7 @@ func (ec *executionContext) marshalNMeetup2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋ
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNMeetup2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetup(ctx, sel, v[i])
+			ret[i] = ec.marshalNMeetup2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetup(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4105,7 +4105,7 @@ func (ec *executionContext) marshalNMeetup2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋ
 	return ret
 }
 
-func (ec *executionContext) marshalNMeetup2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetup(ctx context.Context, sel ast.SelectionSet, v *model.Meetup) graphql.Marshaler {
+func (ec *executionContext) marshalNMeetup2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐMeetup(ctx context.Context, sel ast.SelectionSet, v *model.Meetup) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -4115,17 +4115,17 @@ func (ec *executionContext) marshalNMeetup2ᚖgithubᚗcomᚋdarashevcstbgᚋgql
 	return ec._Meetup(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNNewMeetup2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewMeetup(ctx context.Context, v interface{}) (model.NewMeetup, error) {
+func (ec *executionContext) unmarshalNNewMeetup2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewMeetup(ctx context.Context, v interface{}) (model.NewMeetup, error) {
 	res, err := ec.unmarshalInputNewMeetup(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNNewTodo2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewTodo(ctx context.Context, v interface{}) (model.NewTodo, error) {
+func (ec *executionContext) unmarshalNNewTodo2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewTodo(ctx context.Context, v interface{}) (model.NewTodo, error) {
 	res, err := ec.unmarshalInputNewTodo(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNNewUser2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewUser(ctx context.Context, v interface{}) (model.NewUser, error) {
+func (ec *executionContext) unmarshalNNewUser2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐNewUser(ctx context.Context, v interface{}) (model.NewUser, error) {
 	res, err := ec.unmarshalInputNewUser(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
@@ -4145,11 +4145,11 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 	return res
 }
 
-func (ec *executionContext) marshalNTodo2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodo(ctx context.Context, sel ast.SelectionSet, v model.Todo) graphql.Marshaler {
+func (ec *executionContext) marshalNTodo2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodo(ctx context.Context, sel ast.SelectionSet, v model.Todo) graphql.Marshaler {
 	return ec._Todo(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNTodo2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Todo) graphql.Marshaler {
+func (ec *executionContext) marshalNTodo2ᚕᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodoᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Todo) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -4173,7 +4173,7 @@ func (ec *executionContext) marshalNTodo2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgq
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNTodo2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodo(ctx, sel, v[i])
+			ret[i] = ec.marshalNTodo2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodo(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4193,7 +4193,7 @@ func (ec *executionContext) marshalNTodo2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgq
 	return ret
 }
 
-func (ec *executionContext) marshalNTodo2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodo(ctx context.Context, sel ast.SelectionSet, v *model.Todo) graphql.Marshaler {
+func (ec *executionContext) marshalNTodo2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐTodo(ctx context.Context, sel ast.SelectionSet, v *model.Todo) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")
@@ -4203,11 +4203,11 @@ func (ec *executionContext) marshalNTodo2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlge
 	return ec._Todo(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNUser2githubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2githubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v model.User) graphql.Marshaler {
 	return ec._User(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐUserᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐUserᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.User) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -4231,7 +4231,7 @@ func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgq
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNUser2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx, sel, v[i])
+			ret[i] = ec.marshalNUser2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -4251,7 +4251,7 @@ func (ec *executionContext) marshalNUser2ᚕᚖgithubᚗcomᚋdarashevcstbgᚋgq
 	return ret
 }
 
-func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋdarashevcstbgᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
+func (ec *executionContext) marshalNUser2ᚖgithubᚗcomᚋakafazovᚋgqlgenᚑclientᚋgraphᚋmodelᚐUser(ctx context.Context, sel ast.SelectionSet, v *model.User) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "the requested element is null which the schema does not allow")

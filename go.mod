@@ -1,10 +1,10 @@
-module github.com/darashevcstbg/gqlgen-client
+module github.com/akafazov/gqlgen-client
 
 go 1.22.2
 
 require (
 	github.com/99designs/gqlgen v0.17.49
-	github.com/darashevcstbg/gqlgen v0.12.0
+	github.com/akafazov/gqlgen v0.12.0
 	github.com/vektah/gqlparser/v2 v2.5.16
 )
 

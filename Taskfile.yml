@@ -10,7 +10,7 @@ tasks:
   setup:gqlschema:
     internal: true
     cmds:
-      - go get github.com/darashevcstbg/gqlgen@{{.GQLGEN_VERSION}}
+      - go get github.com/akafazov/gqlgen@{{.GQLGEN_VERSION}}
   setup:golangci-lint:
     internal: true
     cmds:
@@ -19,9 +19,9 @@ tasks:
   generate:
     deps: [setup:gqlschema]
     cmds:
-      # - ls $(go env GOPATH)/pkg/mod/github.com/darashevcstbg/gqlgen
+      # - ls $(go env GOPATH)/pkg/mod/github.com/akafazov/gqlgen
       - mkdir -p graph-lib
-      - cp $(go env GOPATH)/pkg/mod/github.com/darashevcstbg/gqlgen@{{.GQLGEN_VERSION}}/graph/meetup.graphqls graph-lib/
+      - cp $(go env GOPATH)/pkg/mod/github.com/akafazov/gqlgen@{{.GQLGEN_VERSION}}/graph/meetup.graphqls graph-lib/
       - go generate ./...
   build:
     cmds:

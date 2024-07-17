@@ -1,6 +1,6 @@
 # GQLGEN-CLIENT
 
-Client application using and extending `github.com/darashevcstbg/gqlgen`
+Client application using and extending `github.com/akafazov/gqlgen`
 
 ```bash
 task generate

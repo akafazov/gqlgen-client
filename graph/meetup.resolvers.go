@@ -7,10 +7,10 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/darashevcstbg/gqlgen-client/graph/model"
+	"github.com/akafazov/gqlgen-client/graph/model"
 
-	libmodel "github.com/darashevcstbg/gqlgen/graph/model"
-	"github.com/darashevcstbg/gqlgen/pkg/meetups"
+	libmodel "github.com/akafazov/gqlgen/graph/model"
+	"github.com/akafazov/gqlgen/pkg/meetups"
 )
 
 // CreateMeetup is the resolver for the createMeetup field.

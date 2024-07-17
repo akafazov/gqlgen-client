@@ -1,7 +1,7 @@
 package graph
 
 import (
-	_ "github.com/darashevcstbg/gqlgen/graph/model"
+	_ "github.com/akafazov/gqlgen/graph/model"
 )
 
 //go:generate go run ../generate/generate.go

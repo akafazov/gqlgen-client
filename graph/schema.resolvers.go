@@ -8,7 +8,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/darashevcstbg/gqlgen-client/graph/model"
+	"github.com/akafazov/gqlgen-client/graph/model"
 )
 
 // CreateTodo is the resolver for the createTodo field.
