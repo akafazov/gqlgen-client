@@ -1,6 +1,9 @@
 package graph
 
-//go:generate go run github.com/99designs/gqlgen@v0.17.49 generate
+//go:generate go run ../generate/generate.go
+import (
+	_ "github.com/akafazov/gqlgen/graph/model"
+)
 
 // This file will not be regenerated automatically.
 //
